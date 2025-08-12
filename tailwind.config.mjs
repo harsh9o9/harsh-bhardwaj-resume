@@ -13,6 +13,7 @@ export default {
       },
       fontFamily: {
         technology: ['Technology', 'sans-serif'],
+        'plex-mono': ['"IBM Plex Mono"', 'monospace'],
       },
     },
   },
