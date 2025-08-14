@@ -1,5 +1,6 @@
 import About from './About';
 import Hero from './Hero';
+import Study from './Study';
 
 export default function Body({ mainContentRef, scrollYProgress }) {
   return (
@@ -8,6 +9,7 @@ export default function Body({ mainContentRef, scrollYProgress }) {
         <Hero scrollYProgress={scrollYProgress} />
       </div>
       <About scrollYProgress={scrollYProgress} />
+      <Study scrollYProgress={scrollYProgress} />
       <div className="relative h-full min-h-screen w-full">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo iste debitis sequi esse at
         vero, nobis officia fuga dolorem iusto alias vitae eligendi deserunt delectus quisquam nam

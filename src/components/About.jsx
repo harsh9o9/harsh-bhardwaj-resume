@@ -40,8 +40,8 @@ export default function About({ scrollYProgress }) {
   /**
    * Define the global scroll progress range where the About section is active.
    */
-  const start = 0.5;
-  const end = 0.7;
+  const start = 0.45;
+  const end = 0.55;
 
   // Determine opacity for the last image separately to control text appearance
   const lastIndex = imageSources.length - 1;
@@ -86,7 +86,7 @@ export default function About({ scrollYProgress }) {
           className="bg-opacity-90 font-plex-mono absolute top-1/2 left-1/2 flex w-[28rem] max-w-full -translate-x-1/2 -translate-y-1/2 flex-col items-center rounded-lg p-6 text-center tracking-tight"
         >
           <div className="border-dashed-custom mb-4 w-full space-y-2 pb-4 text-left">
-            <p className="text-2xl font-light font-normal text-black">
+            <p className="text-2xl text-black">
               I convert business visions and customer needs into enjoyable experiences. Welcome to a
               day in my life.
             </p>

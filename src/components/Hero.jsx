@@ -10,7 +10,7 @@ const Hero = ({ scrollYProgress }) => {
   const introScale = useTransform(scrollYProgress, [0.19, 0.4], [3, 1.2]); // Shrinks from 2 → 1
   return (
     <>
-      <div className="sticky top-0 grid h-full min-h-screen w-full grid-cols-2">
+      <div className="sticky top-0 grid h-full min-h-screen w-full grid-cols-2 overflow-hidden">
         <motion.div
           className="col-span-full row-span-full flex items-center justify-center"
           style={{ scale: heroScale, opacity: heroOpacity }}
