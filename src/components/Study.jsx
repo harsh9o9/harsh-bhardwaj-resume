@@ -101,7 +101,7 @@ export default function Study({ scrollYProgress }) {
             height={512}
             src="/images/oatmeal-fill.png"
             alt="oatmeal-fill"
-            className="col-span-full row-span-full block h-[512px] w-[512px] border-inherit object-cover object-center"
+            className="col-span-full row-span-full block h-[512px] w-[570px] border-inherit object-cover object-center"
             variants={{
               rest: { opacity: 0 },
               hover: { opacity: 1, transition: { duration: 0.5, ease: 'easeInOut' } },
