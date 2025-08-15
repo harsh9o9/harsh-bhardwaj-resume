@@ -1,0 +1,114 @@
+import CircularTextRing from './generic/CircularTextRing';
+import PlusIcon from './icons/PlusIcon';
+import UploadIcon from './icons/UploadIcon';
+
+// Sample data prop
+// data = {
+//   window: {
+//     domain: 'chatbuddy.com',
+//     imgPath: '/images/chatbuddy-view.png',
+//     imgAlt: 'ChatBuddy website view',
+//   },
+//   logo: {
+//     title: 'chatbuddy',
+//     ringText: 'CHATBUDDY',
+//     position: 'BOTTOM-LEFT',
+//     colors: {
+//       circle: 'bg-white/40',
+//       ringText: '#cad5e2',
+//       text: 'text-white',
+//     },
+//   },
+//   info: {
+//     pillTitle: 'Project desc.',
+//     title: 'ChatBuddy . 2024',
+//     description: 'A real time chatting website build using MERN stack and socket.io',
+//     position: 'TOP-RIGHT',
+//     background: 'bg-gray-200',
+//   },
+// }
+
+const LOGO_POSITIONS_MAP = Object.freeze({
+  'BOTTOM-LEFT': '-left-1/12 -bottom-1/6',
+  'BOTTOM-RIGHT': '-right-1/12 -bottom-1/6',
+  'TOP-LEFT': 'top-1/6 -left-1/12',
+  'TOP-RIGHT': '-top-1/6 -right-1/6',
+});
+
+const INFO_POSITIONS_MAP = Object.freeze({
+  'BOTTOM-LEFT': '-left-1/12 -bottom-1/6',
+  'BOTTOM-RIGHT': '-right-1/12 -bottom-1/4',
+  'TOP-LEFT': '-left-1/6 -top-1/4',
+  'TOP-RIGHT': '-right-1/12 -top-1/4',
+});
+
+export default function ProjectCard({ data }) {
+  return (
+    <a className="relative" href={data?.projectLink || '#'} target="_blank">
+      <div className="overflow-hidden rounded-2xl">
+        <div>
+          <div className="flex items-center justify-between gap-10 bg-neutral-700 px-8 py-4">
+            <div className="flex gap-2">
+              <span className="block h-3 w-3 rounded-full bg-red-400"></span>
+              <span className="block h-3 w-3 rounded-full bg-yellow-400"></span>
+              <span className="block h-3 w-3 rounded-full bg-green-400"></span>
+            </div>
+            <div className="w-full max-w-96 rounded-lg border-[1px] border-gray-200/20">
+              <p className="py-1 text-center text-sm text-gray-300">{data?.window?.domain || ''}</p>
+            </div>
+            <div>
+              <div className="flex gap-10">
+                <UploadIcon className="h-5 text-gray-400" />
+                <PlusIcon className="h-5 text-gray-400" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <img
+            src={data?.window?.imgPath || ''}
+            alt={data?.window?.imgAlt || ''}
+            className="h-full w-full object-cover"
+          />
+        </div>
+      </div>
+      <div
+        className={`absolute ${INFO_POSITIONS_MAP[data?.info?.position || 'BOTTOM-RIGHT']} flex flex-col gap-4`}
+      >
+        <p
+          className={`max-w-fit rounded-2xl ${data?.info?.colors?.pillBg || 'bg-white'} px-5 py-2 text-sm font-bold shadow-2xl`}
+        >
+          {data?.info?.pillTitle || ''}
+        </p>
+        <div
+          className={`font-plex-mono flex min-h-48 w-64 flex-col gap-11 ${data?.info?.colors?.infoBg || 'bg-green-200'} p-4 tracking-tight`}
+        >
+          <p className="font-semibold">{data?.info?.title || ''}</p>
+          <p>{data?.info?.description || ''}</p>
+        </div>
+      </div>
+      <div className={`absolute ${LOGO_POSITIONS_MAP[data?.logo?.position || 'TOP-LEFT']}`}>
+        <div
+          className={`relative grid aspect-square h-44 w-44 grid-cols-2 place-items-center rounded-full ${data?.logo?.colors?.circle || 'bg-white/40'}`}
+        >
+          <div className="relative -top-3 -left-2 col-span-full row-span-full">
+            <CircularTextRing
+              text={data?.logo?.ringText || '*****'}
+              repeat={3}
+              radius={80}
+              height={180}
+              width={180}
+              fontSize={15}
+              color={data?.logo?.colors?.ringText || '#cad5e2'}
+            />
+          </div>
+          <p
+            className={`relative -top-2 -left-1/8 col-span-full row-span-full rotate-12 [transform:perspective(1200px)_translateZ(72px)] text-4xl font-bold ${data?.logo?.colors?.text || 'text-white'}`}
+          >
+            {data?.logo?.title || ''}
+          </p>
+        </div>
+      </div>
+    </a>
+  );
+}

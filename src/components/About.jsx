@@ -37,13 +37,9 @@ function useStepOpacityWithinRange(scrollYProgress, index, total, start, end) {
 }
 
 export default function About({ scrollYProgress }) {
-  /**
-   * Define the global scroll progress range where the About section is active.
-   */
-  const start = 0.45;
-  const end = 0.55;
+  const start = 0.3;
+  const end = 0.4;
 
-  // Determine opacity for the last image separately to control text appearance
   const lastIndex = imageSources.length - 1;
   const lastImageOpacity = useStepOpacityWithinRange(
     scrollYProgress,

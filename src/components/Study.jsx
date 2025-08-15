@@ -1,23 +1,18 @@
-import { motion, useInView } from 'motion/react';
-import { useRef } from 'react';
-import AnimatedParagraph from './generic/AnimatedParagraph';
+import { motion } from 'motion/react';
+import UpwardAnimated from './generic/UpwardAnimated';
 
-export default function Study({ scrollYProgress }) {
-  // Reference for the <p> tag to trigger in-view animation
-  const paragraphRef = useRef(null);
-  const mealRef = useRef(null);
-  const isInView = useInView(paragraphRef, { margin: '-100px' });
-  const mealIsInView = useInView(mealRef, { margin: '-100px' });
-
+export default function Study() {
   return (
     <div className="relative min-h-screen w-full">
       <div className="flex justify-center">
-        <AnimatedParagraph className="font-plex-mono w-[380px] text-2xl font-light text-white">
-          I like to start my day with my morning routine and some study or learning
-        </AnimatedParagraph>
+        <UpwardAnimated>
+          <p className="font-plex-mono mt-16 w-[380px] text-2xl font-light text-white">
+            I like to start my day with my morning routine and some study or learning
+          </p>
+        </UpwardAnimated>
       </div>
 
-      <div className="mt-16 flex justify-center">
+      <UpwardAnimated className="mt-16 flex justify-center">
         <motion.div
           className="grid w-[677px] grid-cols-2"
           initial="rest"
@@ -65,14 +60,16 @@ export default function Study({ scrollYProgress }) {
             }}
           />
         </motion.div>
-      </div>
+      </UpwardAnimated>
       <div className="mt-16 flex justify-center">
-        <AnimatedParagraph className="font-plex-mono w-[380px] text-2xl font-light text-white">
-          Then I have my breakfast which (unapologetically) is usually OatMeal or Muesli bowl - the
-          only healthy recipe I've mastered.
-        </AnimatedParagraph>
+        <UpwardAnimated>
+          <p className="font-plex-mono w-[380px] text-2xl font-light text-white">
+            Then I have my breakfast which (unapologetically) is usually OatMeal or Muesli bowl -
+            the only healthy recipe I've mastered.
+          </p>
+        </UpwardAnimated>
       </div>
-      <div className="mt-14 flex justify-center">
+      <UpwardAnimated className="mt-14 flex justify-center">
         <motion.div
           className="grid w-[677px] grid-cols-2 place-items-center"
           initial="rest"
@@ -108,7 +105,7 @@ export default function Study({ scrollYProgress }) {
             }}
           />
         </motion.div>
-      </div>
+      </UpwardAnimated>
     </div>
   );
 }
