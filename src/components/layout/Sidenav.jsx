@@ -1,6 +1,6 @@
 'use client';
 import Link from 'next/link';
-import HoverUnderline from './generic/HoverUnderline';
+import HoverUnderline from '@/components/ui/HoverUnderline';
 
 export default function Sidenav() {
   return (

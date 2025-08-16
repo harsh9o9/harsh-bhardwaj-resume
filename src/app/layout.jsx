@@ -1,4 +1,5 @@
 import './globals.css';
+import { AnimatePresence } from 'motion/react';
 
 export const metadata = {
   title: 'Harsh Bhardwaj',
@@ -11,7 +12,11 @@ export default function RootLayout({ children }) {
       <head>
         <title>Harsh Bhardwaj</title>
       </head>
-      <body className="bg-white text-black">{children}</body>
+      <body className="bg-white text-black">
+        <AnimatePresence mode="wait">
+          {children}
+        </AnimatePresence>
+      </body>
     </html>
   );
 }

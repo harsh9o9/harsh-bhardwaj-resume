@@ -1,5 +1,8 @@
 'use client';
 import { motion, useTransform } from 'motion/react';
+import { SCROLL_SECTIONS } from '@/utils';
+import { useAboutAnimations } from '@/hooks/useScrollAnimations';
+import ScrollSection from '@/components/layout/ScrollSection';
 
 const imageSources = [
   '/images/paper-crumple-1.avif',
@@ -37,8 +40,7 @@ function useStepOpacityWithinRange(scrollYProgress, index, total, start, end) {
 }
 
 export default function About({ scrollYProgress }) {
-  const start = 0.3;
-  const end = 0.4;
+  const { start, end } = useAboutAnimations(scrollYProgress);
 
   const lastIndex = imageSources.length - 1;
   const lastImageOpacity = useStepOpacityWithinRange(
@@ -50,7 +52,7 @@ export default function About({ scrollYProgress }) {
   );
 
   return (
-    <div className="relative h-full min-h-screen w-full">
+    <ScrollSection>
       {imageSources.map((src, index) => {
         const opacity = useStepOpacityWithinRange(
           scrollYProgress,
@@ -96,6 +98,6 @@ export default function About({ scrollYProgress }) {
           </div>
         </motion.div>
       )}
-    </div>
+    </ScrollSection>
   );
 }

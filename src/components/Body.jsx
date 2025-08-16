@@ -1,7 +1,7 @@
-import About from './About';
-import Hero from './Hero';
-import Study from './Study';
-import Work from './Work';
+import About from '@/components/sections/About';
+import Hero from '@/components/sections/Hero';
+import Study from '@/components/sections/Study';
+import Work from '@/components/sections/Work';
 
 export default function Body({ mainContentRef, scrollYProgress }) {
   return (

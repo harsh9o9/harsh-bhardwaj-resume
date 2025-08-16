@@ -1,36 +1,36 @@
-import { useRef, useLayoutEffect, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { motion, useTransform } from 'motion/react';
-import ProjectCard from './ProjectCard';
+import ProjectCard from '@/components/ui/ProjectCard';
+import { useWorkAnimations } from '@/hooks/useScrollAnimations';
+import ScrollSection from '@/components/layout/ScrollSection';
 
 export default function Work({ scrollYProgress }) {
   const marqueeRef = useRef(null);
   const [marqueeWidth, setMarqueeWidth] = useState(0);
   const repeats = 40;
 
-  useLayoutEffect(() => {
-    if (marqueeRef.current) {
-      setMarqueeWidth(marqueeRef.current.offsetWidth / 2);
-    }
+  useEffect(() => {
+    const element = marqueeRef.current;
+    if (!element) return;
+
+    const resizeObserver = new ResizeObserver((entries) => {
+      for (const entry of entries) {
+        setMarqueeWidth(entry.contentRect.width / 2);
+      }
+    });
+
+    resizeObserver.observe(element);
+    return () => resizeObserver.disconnect();
   }, []);
 
-  const start = 0.5;
-  const end = 0.65;
-  const SPEED_MULTIPLIER = 2;
-  const SCROLL_DISTANCE = (marqueeWidth || 800) * SPEED_MULTIPLIER;
-
-  const linearProgress = useTransform(scrollYProgress, [start, end], [0, 1], { clamp: false });
-  const easeInOutCubic = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
-  const x = useTransform(linearProgress, (t) => -SCROLL_DISTANCE * easeInOutCubic(t));
-
-  const workOpacity = useTransform(scrollYProgress, [0.7, 0.8], [1, 0]);
-  const p1Scale = useTransform(scrollYProgress, [0.74, 0.8], [0.7, 1]);
-  const p1Opacity = useTransform(scrollYProgress, [0.74, 0.8, 0.9], [0, 1, 0]);
-  const p2Scale = useTransform(scrollYProgress, [0.9, 1], [0.7, 1]);
-  const p2Opacity = useTransform(scrollYProgress, [0.85, 1], [0, 1]);
+  const { x, workOpacity, p1Scale, p1Opacity, p2Scale, p2Opacity } = useWorkAnimations(
+    scrollYProgress,
+    marqueeWidth,
+  );
 
   return (
     <>
-      <div className="sticky top-0 grid h-full min-h-screen w-full grid-cols-3 place-items-center overflow-hidden">
+      <ScrollSection sticky className="grid h-full grid-cols-3 place-items-center overflow-hidden">
         <div className="mask-gradient col-span-full row-span-full">
           <motion.div
             ref={marqueeRef}
@@ -116,9 +116,9 @@ export default function Work({ scrollYProgress }) {
             }}
           />
         </motion.div>
-      </div>
-      <div className="relative min-h-screen w-full"></div>
-      <div className="relative min-h-screen w-full"></div>
+      </ScrollSection>
+      <div className="relative min-h-screen w-full" />
+      <div className="relative min-h-screen w-full" />
     </>
   );
 }
