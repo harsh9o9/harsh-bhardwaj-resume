@@ -2,6 +2,7 @@ import About from '@/components/sections/About';
 import Hero from '@/components/sections/Hero';
 import Study from '@/components/sections/Study';
 import Work from '@/components/sections/Work';
+import Fun from './sections/Fun';
 
 export default function Body({ mainContentRef, scrollYProgress }) {
   return (
@@ -14,6 +15,9 @@ export default function Body({ mainContentRef, scrollYProgress }) {
       <div>
         <Work scrollYProgress={scrollYProgress} />
       </div>
+      {/* <div> */}
+      <Fun scrollYProgress={scrollYProgress} />
+      {/* </div> */}
     </div>
   );
 }

@@ -8,32 +8,32 @@ export default function Sidenav() {
       <nav>
         <ul className="flex flex-col gap-4 border-b border-white/50 pb-6">
           <li>
-            <HoverUnderline>
+            <HoverUnderline underlineColor="bg-white/50">
               <Link href={'#intro'}>intro</Link>
             </HoverUnderline>
           </li>
           <li>
-            <HoverUnderline>
+            <HoverUnderline underlineColor="bg-white/50">
               <Link href={'#work'}>work</Link>
             </HoverUnderline>
           </li>
-          <li>
+          {/* <li>
             <HoverUnderline>
               <Link href={'#projects'}>projects</Link>
             </HoverUnderline>
-          </li>
+          </li> */}
         </ul>
       </nav>
 
       <div>
         <ul className="flex flex-col gap-4 border-t border-white/50 py-6">
           <li>
-            <HoverUnderline>
+            <HoverUnderline underlineColor="bg-white/50">
               <Link href={'https://github.com/harsh9o9'}>Github</Link>
             </HoverUnderline>
           </li>
           <li>
-            <HoverUnderline>
+            <HoverUnderline underlineColor="bg-white/50">
               <Link href={'www.linkedin.com/in/harsh9o9'}>LinkedIn</Link>
             </HoverUnderline>
           </li>

@@ -78,12 +78,28 @@
   border-top-width: 0;
   border-left-width: 0;
   border-right-width: 0;
-  border-bottom-width: 2px; /* set only bottom border width */
+  border-bottom-width: 2px;
   border-image-slice: 1;
   border-image-source: repeating-linear-gradient(
     to right,
     black 0,
     black 7px,
+    transparent 7px,
+    transparent 14px
+  );
+}
+
+.border-dashed-custom-white {
+  border-style: solid;
+  border-top-width: 0;
+  border-left-width: 0;
+  border-right-width: 0;
+  border-bottom-width: 2px;
+  border-image-slice: 1;
+  border-image-source: repeating-linear-gradient(
+    to right,
+    white 0,
+    white 7px,
     transparent 7px,
     transparent 14px
   );

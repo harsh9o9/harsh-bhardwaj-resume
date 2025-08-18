@@ -4,23 +4,27 @@
 export const SCROLL_SECTIONS = {
   HERO: {
     START: 0,
-    END: 0.15,
-    INTRO_START: 0.14,
-    INTRO_END: 0.25,
+    END: 0.1,
+    INTRO_START: 0.1,
+    INTRO_END: 0.15,
   },
   ABOUT: {
-    START: 0.3,
-    END: 0.4,
+    START: 0.19,
+    END: 0.22,
   },
   WORK: {
-    START: 0.5,
-    END: 0.65,
-    FADE_START: 0.7,
-    FADE_END: 0.8,
-    PROJECT1_START: 0.74,
-    PROJECT1_END: 0.8,
-    PROJECT2_START: 0.9,
-    PROJECT2_END: 1,
+    START: 0.39,
+    END: 0.52, // Reduced from 0.6 to 0.52 for faster animation
+    FADE_START: 0.45, // Adjusted to match new timing
+    FADE_END: 0.52,
+    PROJECT1_START: 0.42, // Earlier start for smoother transition
+    PROJECT1_END: 0.62, // Extended duration for smoother animation
+    PROJECT2_START: 0.55, // Adjusted timing for better flow
+    PROJECT2_END: 0.75, // Extended duration for smoother animation
+  },
+  FUN: {
+    FUN_START: 0.8,
+    FUN_END: 0.86,
   },
 };
 
@@ -47,6 +51,6 @@ export const PERFORMANCE = {
  * Video constants
  */
 export const VIDEO = {
-  SPEED_MULTIPLIER: 2,
+  SPEED_MULTIPLIER: 3.5, // Increased from 2 to 3.5 for faster movement
   DEFAULT_MARQUEE_WIDTH: 800,
 };

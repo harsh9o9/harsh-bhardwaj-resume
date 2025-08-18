@@ -1,8 +1,8 @@
 'use client';
 import { motion, useTransform } from 'motion/react';
-import { SCROLL_SECTIONS } from '@/utils';
 import { useAboutAnimations } from '@/hooks/useScrollAnimations';
 import ScrollSection from '@/components/layout/ScrollSection';
+import HoverUnderline from '../ui/HoverUnderline';
 
 const imageSources = [
   '/images/paper-crumple-1.avif',
@@ -40,7 +40,7 @@ function useStepOpacityWithinRange(scrollYProgress, index, total, start, end) {
 }
 
 export default function About({ scrollYProgress }) {
-  const { start, end } = useAboutAnimations(scrollYProgress);
+  const { start, end } = useAboutAnimations();
 
   const lastIndex = imageSources.length - 1;
   const lastImageOpacity = useStepOpacityWithinRange(
@@ -92,9 +92,12 @@ export default function About({ scrollYProgress }) {
           <div className="w-full space-y-2 text-left">
             <p className="text-[13px] tracking-[5.2px] text-gray-700">CONTACT</p>
             <p className="text-2xl text-black">hbhardwaj454@gmail.com</p>
-            <button className="cursor-pointer bg-transparent text-2xl text-purple-700">
+            <HoverUnderline
+              underlineColor={'bg-purple-700'}
+              className="cursor-pointer bg-transparent text-2xl text-purple-700"
+            >
               Book a call
-            </button>
+            </HoverUnderline>
           </div>
         </motion.div>
       )}

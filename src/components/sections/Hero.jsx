@@ -40,6 +40,7 @@ const Hero = ({ scrollYProgress }) => {
 
         <motion.div
           className="col-span-full row-span-full flex items-center justify-center"
+          id="intro"
           style={{ opacity: introOpacity, scale: introScale }}
         >
           <motion.p

@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { motion, useTransform } from 'motion/react';
 import ProjectCard from '@/components/ui/ProjectCard';
 import { useWorkAnimations } from '@/hooks/useScrollAnimations';
@@ -6,8 +6,8 @@ import ScrollSection from '@/components/layout/ScrollSection';
 
 export default function Work({ scrollYProgress }) {
   const marqueeRef = useRef(null);
-  const [marqueeWidth, setMarqueeWidth] = useState(0);
   const repeats = 40;
+  const [marqueeWidth, setMarqueeWidth] = useState(0);
 
   useEffect(() => {
     const element = marqueeRef.current;
@@ -31,7 +31,7 @@ export default function Work({ scrollYProgress }) {
   return (
     <>
       <ScrollSection sticky className="grid h-full grid-cols-3 place-items-center overflow-hidden">
-        <div className="mask-gradient col-span-full row-span-full">
+        <div className="mask-gradient col-span-full row-span-full" id="work">
           <motion.div
             ref={marqueeRef}
             className="font-technology flex w-[800px] text-9xl font-bold text-white select-none"
@@ -48,6 +48,42 @@ export default function Work({ scrollYProgress }) {
         <motion.div
           className="relative col-span-full row-span-full w-2xl"
           style={{ scale: p1Scale, opacity: p1Opacity }}
+        >
+          <ProjectCard
+            projectLink="https://linkedin.com"
+            data={{
+              window: {
+                domain: 'linkedin.com',
+                imgPath: '/images/linkedin.png',
+                imgAlt: 'LinkedIn view',
+              },
+              logo: {
+                title: 'LinkedIn',
+                ringText: 'LINKEDIN',
+                position: 'TOP-RIGHT',
+                colors: {
+                  circle: 'bg-blue-700/40',
+                  ringText: '#ffffff',
+                  text: 'text-white',
+                },
+              },
+              info: {
+                pillTitle: 'Project desc.',
+                title: 'LinkedIn . 2023',
+                description:
+                  'Employment-oriented social networking platform, primarily used for professional networking and career development.',
+                position: 'BOTTOM-LEFT',
+                colors: {
+                  pillBg: 'bg-blue-300',
+                  infoBg: 'bg-blue-200',
+                },
+              },
+            }}
+          />
+        </motion.div>
+        <motion.div
+          className="relative col-span-full row-span-full w-2xl"
+          style={{ scale: p2Scale, opacity: p2Opacity }}
         >
           <ProjectCard
             projectLink="https://github.com/harsh9o9/chat-buddy-frontend"
@@ -80,43 +116,9 @@ export default function Work({ scrollYProgress }) {
             }}
           />
         </motion.div>
-        <motion.div
-          className="relative col-span-full row-span-full w-2xl"
-          style={{ scale: p2Scale, opacity: p2Opacity }}
-        >
-          <ProjectCard
-            projectLink="https://linkedin.com/mypreferences"
-            data={{
-              window: {
-                domain: 'linkedin.com',
-                imgPath: '/images/linkedin-settings.png',
-                imgAlt: 'LinkedIn settings view',
-              },
-              logo: {
-                title: 'LinkedIn',
-                ringText: 'LINKEDIN',
-                position: 'TOP-RIGHT',
-                colors: {
-                  circle: 'bg-blue-700/40',
-                  ringText: '#ffffff',
-                  text: 'text-white',
-                },
-              },
-              info: {
-                pillTitle: 'Project desc.',
-                title: 'LinkedIn . 2023',
-                description:
-                  'Employment-oriented social networking platform, primarily used for professional networking and career development.',
-                position: 'BOTTOM-LEFT',
-                colors: {
-                  pillBg: 'bg-blue-300',
-                  infoBg: 'bg-blue-200',
-                },
-              },
-            }}
-          />
-        </motion.div>
       </ScrollSection>
+      <div className="relative min-h-screen w-full" />
+      <div className="relative min-h-screen w-full" />
       <div className="relative min-h-screen w-full" />
       <div className="relative min-h-screen w-full" />
     </>

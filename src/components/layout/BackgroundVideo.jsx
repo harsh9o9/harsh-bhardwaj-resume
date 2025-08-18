@@ -1,7 +1,9 @@
 'use client';
 import { useRef, useCallback } from 'react';
 import { motion, useMotionValueEvent } from 'motion/react';
-import { throttle, mapPrecision, PERFORMANCE } from '@/utils';
+import { throttle } from '@/utils/throttle';
+import { mapPrecision } from '@/utils/animations';
+import { PERFORMANCE } from '@/utils/constants';
 
 export default function BackgroundVideo({ scrollYProgress }) {
   const videoRef = useRef(null);

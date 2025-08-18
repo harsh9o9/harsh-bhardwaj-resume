@@ -66,15 +66,9 @@ export default function ProjectCard({ data }) {
           transition={{ delay: 0.1 }}
         >
           <div className="flex gap-2">
-            {['red', 'yellow', 'green'].map((color, index) => (
-              <motion.span
-                key={color}
-                className={`block h-3 w-3 rounded-full bg-${color}-400`}
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ delay: 0.2 + index * 0.1 }}
-              />
-            ))}
+            <span className={`block h-3 w-3 rounded-full bg-red-400`} />
+            <span className={`block h-3 w-3 rounded-full bg-yellow-400`} />
+            <span className={`block h-3 w-3 rounded-full bg-green-400`} />
           </div>
           <div className="w-full max-w-96 rounded-lg border-[1px] border-gray-200/20">
             <p className="py-1 text-center text-sm text-gray-300">{data?.window?.domain || ''}</p>
