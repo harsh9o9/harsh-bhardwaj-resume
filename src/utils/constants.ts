@@ -1,7 +1,9 @@
+import type { ScrollSections, AnimationDurations, PerformanceConfig } from '../types/common';
+
 /**
  * Scroll section definitions for consistent timing across components
  */
-export const SCROLL_SECTIONS = {
+export const SCROLL_SECTIONS: ScrollSections = {
   HERO: {
     START: 0,
     END: 0.1,
@@ -26,26 +28,24 @@ export const SCROLL_SECTIONS = {
     FUN_START: 0.8,
     FUN_END: 0.86,
   },
-};
+} as const;
 
 /**
  * Animation duration constants
  */
-export const ANIMATION_DURATIONS = {
+export const ANIMATION_DURATIONS: AnimationDurations = {
   FAST: 0.2,
   NORMAL: 0.5,
   SLOW: 0.8,
   VERY_SLOW: 1.2,
-};
+} as const;
 
 /**
  * Performance constants
  */
-export const PERFORMANCE = {
+export const PERFORMANCE: PerformanceConfig = {
   THROTTLE_60FPS: 16, // ~60fps
-  THROTTLE_30FPS: 32, // ~30fps
-  DEBOUNCE_DEFAULT: 300,
-};
+} as const;
 
 /**
  * Video constants
@@ -53,4 +53,12 @@ export const PERFORMANCE = {
 export const VIDEO = {
   SPEED_MULTIPLIER: 3.5, // Increased from 2 to 3.5 for faster movement
   DEFAULT_MARQUEE_WIDTH: 800,
-};
+} as const;
+
+/**
+ * Type exports for the constants
+ */
+export type ScrollSectionsType = typeof SCROLL_SECTIONS;
+export type AnimationDurationsType = typeof ANIMATION_DURATIONS;
+export type PerformanceConfigType = typeof PERFORMANCE;
+export type VideoConfigType = typeof VIDEO;

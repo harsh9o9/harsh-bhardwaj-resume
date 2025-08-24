@@ -1,9 +1,19 @@
 import { motion, useInView } from 'motion/react';
 import { useRef } from 'react';
 
-export default function UpwardAnimated({ children, className, margin = '-100px' }) {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { margin });
+interface UpwardAnimatedProps {
+  children: React.ReactNode;
+  className?: string;
+  margin?: string;
+}
+
+export default function UpwardAnimated({ 
+  children, 
+  className, 
+  margin = '-100px' 
+}: UpwardAnimatedProps): React.JSX.Element {
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { margin: margin as any });
 
   return (
     <motion.div

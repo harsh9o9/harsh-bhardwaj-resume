@@ -1,4 +1,8 @@
-export default function UploadIcon({ className }) {
+interface UploadIconProps {
+  className?: string;
+}
+
+export default function UploadIcon({ className }: UploadIconProps): React.JSX.Element {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

@@ -1,12 +1,17 @@
 import './globals.css';
 import { AnimatePresence } from 'motion/react';
+import { Metadata } from 'next';
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'Harsh Bhardwaj',
   description: 'Software Engineer',
 };
 
-export default function RootLayout({ children }) {
+interface RootLayoutProps {
+  children: React.ReactNode;
+}
+
+export default function RootLayout({ children }: RootLayoutProps): React.JSX.Element {
   return (
     <html lang="en">
       <head>

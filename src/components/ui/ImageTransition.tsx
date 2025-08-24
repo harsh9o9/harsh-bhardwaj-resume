@@ -1,5 +1,15 @@
 import { motion } from 'motion/react';
 
+interface ImageTransitionProps {
+  outlineSrc: string;
+  fillSrc: string;
+  alt: string;
+  className?: string;
+  width?: number;
+  height?: number;
+  duration?: number;
+}
+
 export default function ImageTransition({ 
   outlineSrc, 
   fillSrc, 
@@ -8,7 +18,7 @@ export default function ImageTransition({
   width = 512,
   height = 512,
   duration = 0.5
-}) {
+}: ImageTransitionProps): React.JSX.Element {
   return (
     <motion.div
       className={`grid grid-cols-2 ${className}`}

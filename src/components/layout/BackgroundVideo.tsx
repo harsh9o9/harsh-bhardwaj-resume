@@ -1,15 +1,19 @@
 'use client';
 import { useRef, useCallback } from 'react';
-import { motion, useMotionValueEvent } from 'motion/react';
-import { throttle } from '@/utils/throttle';
-import { mapPrecision } from '@/utils/animations';
-import { PERFORMANCE } from '@/utils/constants';
+import { motion, useMotionValueEvent, MotionValue } from 'motion/react';
+import { throttle } from '../../utils/throttle';
+import { mapPrecision } from '../../utils/animations';
+import { PERFORMANCE } from '../../utils/constants';
 
-export default function BackgroundVideo({ scrollYProgress }) {
-  const videoRef = useRef(null);
+interface BackgroundVideoProps {
+  scrollYProgress: MotionValue<number>;
+}
+
+export default function BackgroundVideo({ scrollYProgress }: BackgroundVideoProps): React.JSX.Element {
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   const throttledVideoUpdate = useCallback(
-    throttle((progress) => {
+    throttle((progress: number) => {
       const video = videoRef.current;
       if (video?.duration) {
         const rawCurrentTime = progress * video.duration;

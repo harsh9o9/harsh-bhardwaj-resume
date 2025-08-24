@@ -1,7 +1,7 @@
 import React from 'react';
 
 function CircularTextRing({
-  text = 'EDLYFT',
+  text = 'PROJECT',
   repeat = 4,
   separator = '✦',
   radius = 160,

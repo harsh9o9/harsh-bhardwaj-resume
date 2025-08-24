@@ -1,7 +1,23 @@
-const HoverUnderline = ({ underlineColor, children, className = '', style = {}, onClick }) => {
+import React from 'react';
+
+interface HoverUnderlineProps {
+  underlineColor: string;
+  children: React.ReactNode;
+  className?: string;
+  style?: React.CSSProperties;
+  onClick?: () => void;
+}
+
+const HoverUnderline: React.FC<HoverUnderlineProps> = ({ 
+  underlineColor, 
+  children, 
+  className = '', 
+  style = {}, 
+  onClick 
+}) => {
   // Convert Tailwind color to CSS color
-  const getColorValue = (color) => {
-    const colorMap = {
+  const getColorValue = (color: string): string => {
+    const colorMap: Record<string, string> = {
       'bg-white': '#ffffff',
       'bg-purple-700': '#7c3aed',
       'bg-red-500': '#ef4444',
@@ -14,6 +30,7 @@ const HoverUnderline = ({ underlineColor, children, className = '', style = {}, 
       'bg-gray-900': '#111827',
       'bg-cyan-400': '#60a5fa',
       'bg-red-400': '#f87171',
+      'bg-neutral-500/90': 'rgba(115, 115, 115, 0.9)',
     };
 
     // Handle opacity notation (e.g., bg-white/50)
@@ -35,7 +52,7 @@ const HoverUnderline = ({ underlineColor, children, className = '', style = {}, 
 
   const colorValue = getColorValue(underlineColor);
 
-  const baseStyles = {
+  const baseStyles: React.CSSProperties = {
     position: 'relative',
     display: 'inline-block',
     cursor: 'pointer',
@@ -43,8 +60,7 @@ const HoverUnderline = ({ underlineColor, children, className = '', style = {}, 
 
   const styles = { ...baseStyles, ...style };
 
-  const afterStyles = {
-    content: '""',
+  const afterStyles: React.CSSProperties = {
     position: 'absolute',
     bottom: '0',
     left: '0',
@@ -56,16 +72,16 @@ const HoverUnderline = ({ underlineColor, children, className = '', style = {}, 
     transition: 'transform 0.2s ease-in',
   };
 
-  const handleMouseEnter = (e) => {
-    const after = e.currentTarget.querySelector('.hover-underline-after');
+  const handleMouseEnter = (e: React.MouseEvent<HTMLSpanElement>) => {
+    const after = e.currentTarget.querySelector('.hover-underline-after') as HTMLSpanElement;
     if (after) {
       after.style.transformOrigin = 'left';
       after.style.transform = 'scaleX(1)';
     }
   };
 
-  const handleMouseLeave = (e) => {
-    const after = e.currentTarget.querySelector('.hover-underline-after');
+  const handleMouseLeave = (e: React.MouseEvent<HTMLSpanElement>) => {
+    const after = e.currentTarget.querySelector('.hover-underline-after') as HTMLSpanElement;
     if (after) {
       after.style.transformOrigin = 'right';
       after.style.transform = 'scaleX(0)';

@@ -1,10 +1,11 @@
+import { motion } from 'motion/react';
 import { useEffect, useRef, useState } from 'react';
-import { motion, useTransform } from 'motion/react';
-import ProjectCard from '@/components/ui/ProjectCard';
-import { useWorkAnimations } from '@/hooks/useScrollAnimations';
-import ScrollSection from '@/components/layout/ScrollSection';
+import { useWorkAnimations } from '../../hooks/useScrollAnimations';
+import type { ScrollAnimationProps } from '../../types/common';
+import ScrollSection from '../layout/ScrollSection';
+import ProjectCard from '../ui/ProjectCard';
 
-export default function Work({ scrollYProgress }) {
+export default function Work({ scrollYProgress }: ScrollAnimationProps): React.JSX.Element {
   const marqueeRef = useRef(null);
   const repeats = 40;
   const [marqueeWidth, setMarqueeWidth] = useState(0);
@@ -50,8 +51,8 @@ export default function Work({ scrollYProgress }) {
           style={{ scale: p1Scale, opacity: p1Opacity }}
         >
           <ProjectCard
-            projectLink="https://linkedin.com"
             data={{
+              projectLink: "https://linkedin.com",
               window: {
                 domain: 'linkedin.com',
                 imgPath: '/images/linkedin.png',
@@ -86,8 +87,8 @@ export default function Work({ scrollYProgress }) {
           style={{ scale: p2Scale, opacity: p2Opacity }}
         >
           <ProjectCard
-            projectLink="https://github.com/harsh9o9/chat-buddy-frontend"
             data={{
+              projectLink: "https://github.com/harsh9o9/chat-buddy-frontend",
               window: {
                 domain: 'chatbuddy.com',
                 imgPath: '/images/chatbuddy-view.png',

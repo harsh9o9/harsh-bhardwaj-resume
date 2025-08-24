@@ -1,13 +1,14 @@
 'use client';
-import Body from '@/components/Body';
-import Header from '@/components/layout/Header';
-import Sidenav from '@/components/layout/Sidenav';
-import BackgroundVideo from '@/components/layout/BackgroundVideo';
+
+import Body from '../components/Body';
+import Header from '../components/layout/Header';
+import Sidenav from '../components/layout/Sidenav';
+import BackgroundVideo from '../components/layout/BackgroundVideo';
 import { useScroll } from 'motion/react';
 import { useRef } from 'react';
 
-export default function Home() {
-  const mainContentRef = useRef(null);
+export default function Home(): React.JSX.Element {
+  const mainContentRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     container: mainContentRef,
   });

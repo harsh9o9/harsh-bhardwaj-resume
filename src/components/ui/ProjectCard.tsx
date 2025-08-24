@@ -2,6 +2,42 @@ import { motion } from 'motion/react';
 import CircularTextRing from '@/components/ui/CircularTextRing';
 import PlusIcon from '@/components/icons/PlusIcon';
 import UploadIcon from '@/components/icons/UploadIcon';
+import Image from 'next/image';
+
+type Position = 'BOTTOM-LEFT' | 'BOTTOM-RIGHT' | 'TOP-LEFT' | 'TOP-RIGHT';
+
+interface ProjectCardData {
+  window: {
+    domain: string;
+    imgPath: string;
+    imgAlt: string;
+  };
+  logo: {
+    title: string;
+    ringText: string;
+    position: Position;
+    colors: {
+      circle: string;
+      ringText: string;
+      text: string;
+    };
+  };
+  info: {
+    pillTitle: string;
+    title: string;
+    description: string;
+    position: Position;
+    colors?: {
+      pillBg?: string;
+      infoBg?: string;
+    };
+  };
+  projectLink?: string;
+}
+
+interface ProjectCardProps {
+  data: ProjectCardData;
+}
 
 // Sample data prop
 // data = {
@@ -29,21 +65,21 @@ import UploadIcon from '@/components/icons/UploadIcon';
 //   },
 // }
 
-const LOGO_POSITIONS_MAP = Object.freeze({
+const LOGO_POSITIONS_MAP: Record<Position, string> = Object.freeze({
   'BOTTOM-LEFT': '-left-1/12 -bottom-1/6',
   'BOTTOM-RIGHT': '-right-1/12 -bottom-1/6',
   'TOP-LEFT': 'top-1/6 -left-1/12',
   'TOP-RIGHT': '-top-1/6 -right-1/6',
 });
 
-const INFO_POSITIONS_MAP = Object.freeze({
+const INFO_POSITIONS_MAP: Record<Position, string> = Object.freeze({
   'BOTTOM-LEFT': '-left-1/6 -bottom-1/6',
   'BOTTOM-RIGHT': '-right-1/12 -bottom-1/4',
   'TOP-LEFT': '-left-1/6 -top-1/4',
   'TOP-RIGHT': '-right-1/12 -top-1/4',
 });
 
-export default function ProjectCard({ data }) {
+export default function ProjectCard({ data }: ProjectCardProps): React.JSX.Element {
   return (
     <motion.a
       className="relative block"
@@ -83,10 +119,12 @@ export default function ProjectCard({ data }) {
 
         {/* Project image */}
         <motion.div whileHover={{ scale: 1.05 }} transition={{ duration: 0.3 }}>
-          <img
+          <Image
             src={data?.window?.imgPath || ''}
             alt={data?.window?.imgAlt || ''}
             className="h-full w-full object-cover"
+            width={800}
+            height={600}
           />
         </motion.div>
       </motion.div>

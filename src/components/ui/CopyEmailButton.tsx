@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import HoverUnderline from './HoverUnderline';
 
-const copyToClipboard = async (text) => {
+const copyToClipboard = async (text: string) => {
   try {
     if (navigator.clipboard && window.isSecureContext) {
       // Use the modern Clipboard API
@@ -29,11 +29,16 @@ const copyToClipboard = async (text) => {
     }
   } catch (error) {
     console.error('Failed to copy to clipboard:', error);
-    return { success: false, error: error.message };
+    return { success: false, error: (error as Error).message };
   }
 };
 
-const CopyEmailButton = ({ email, className = '' }) => {
+interface CopyEmailButtonProps {
+  email: string;
+  className?: string;
+}
+
+const CopyEmailButton = ({ email, className = '' }: CopyEmailButtonProps): React.JSX.Element => {
   const [buttonState, setButtonState] = useState('default');
   const [buttonText, setButtonText] = useState('COPY EMAIL');
 

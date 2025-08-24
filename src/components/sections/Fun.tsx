@@ -1,14 +1,14 @@
-import { useRef } from 'react';
-import { motion, useTransform } from 'motion/react';
-import ProjectCard from '@/components/ui/ProjectCard';
-import { useFunAnimations, useWorkAnimations } from '@/hooks/useScrollAnimations';
-import ScrollSection from '@/components/layout/ScrollSection';
-import UpwardAnimated from '../ui/UpwardAnimated';
-import StaggeredText from '../ui/StaggeredText';
-import ImageTransition from '../ui/ImageTransition';
+import { motion } from 'motion/react';
+import Link from 'next/link';
+import { useFunAnimations } from '../../hooks/useScrollAnimations';
+import type { ScrollAnimationProps } from '../../types/common';
+import ScrollSection from '../layout/ScrollSection';
 import CopyEmailButton from '../ui/CopyEmailButton';
+import ImageTransition from '../ui/ImageTransition';
+import StaggeredText from '../ui/StaggeredText';
+import UpwardAnimated from '../ui/UpwardAnimated';
 
-export default function Fun({ scrollYProgress }) {
+export default function Fun({ scrollYProgress }: ScrollAnimationProps): React.JSX.Element {
   const { funOpacity } = useFunAnimations(scrollYProgress);
 
   return (
@@ -57,9 +57,14 @@ export default function Fun({ scrollYProgress }) {
               initialDelay={0.2}
             />
           </UpwardAnimated>
-          <div className="mb-96 flex flex-col items-center justify-center gap-4">
+          <div
+            className="mb-96 flex flex-col items-center justify-center gap-4"
+            id="copy-email-section"
+          >
             <CopyEmailButton email="hbhardwaj454@gmail.com" />
-            <p className="font-plex-mono font-light">hbhardwaj454@gmail.com</p>
+            <p className="font-plex-mono font-light">
+              <Link href="mailto:hbhardwaj454@gmail.com">hbhardwaj454@gmail.com</Link>
+            </p>
           </div>
         </div>
       </div>

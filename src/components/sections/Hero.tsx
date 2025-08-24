@@ -1,8 +1,9 @@
-import { motion, useTransform } from 'motion/react';
-import { useHeroAnimations } from '@/hooks/useScrollAnimations';
-import ScrollSection from '@/components/layout/ScrollSection';
+import { motion } from 'motion/react';
+import { useHeroAnimations } from '../../hooks/useScrollAnimations';
+import type { ScrollAnimationProps } from '../../types/common';
+import ScrollSection from '../layout/ScrollSection';
 
-const Hero = ({ scrollYProgress }) => {
+const Hero = ({ scrollYProgress }: ScrollAnimationProps): React.JSX.Element => {
   const { heroScale, heroOpacity, introOpacity, introScale } = useHeroAnimations(scrollYProgress);
 
   return (

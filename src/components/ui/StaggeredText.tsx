@@ -1,12 +1,20 @@
 import { motion } from 'motion/react';
 
+interface StaggeredTextProps {
+  text: string;
+  className?: string;
+  staggerDelay?: number;
+  duration?: number;
+  initialDelay?: number;
+}
+
 export default function StaggeredText({ 
   text, 
   className = "",
   staggerDelay = 0.1,
   duration = 0.5,
   initialDelay = 0
-}) {
+}: StaggeredTextProps): React.JSX.Element {
   const words = text.split(' ');
   
   return (

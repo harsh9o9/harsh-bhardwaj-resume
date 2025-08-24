@@ -1,8 +1,9 @@
 'use client';
-import { motion, useTransform } from 'motion/react';
-import { useAboutAnimations } from '@/hooks/useScrollAnimations';
-import ScrollSection from '@/components/layout/ScrollSection';
+import { motion, useTransform, MotionValue } from 'motion/react';
+import { useAboutAnimations } from '../../hooks/useScrollAnimations';
+import ScrollSection from '../layout/ScrollSection';
 import HoverUnderline from '../ui/HoverUnderline';
+import type { ScrollAnimationProps } from '../../types/common';
 
 const imageSources = [
   '/images/paper-crumple-1.avif',
@@ -19,7 +20,13 @@ const imageSources = [
  * Custom hook to map scroll progress to an image's opacity within a section range.
  * The last image stays visible (opacity 1) beyond its segment.
  */
-function useStepOpacityWithinRange(scrollYProgress, index, total, start, end) {
+function useStepOpacityWithinRange(
+  scrollYProgress: MotionValue<number>,
+  index: number,
+  total: number,
+  start: number,
+  end: number,
+): MotionValue<number> {
   // Map global scrollYProgress to a normalized 0 → 1 for this section only
   const sectionProgress = useTransform(scrollYProgress, [start, end], [0, 1], { clamp: true });
 
@@ -39,28 +46,28 @@ function useStepOpacityWithinRange(scrollYProgress, index, total, start, end) {
   return useTransform(sectionProgress, input, output);
 }
 
-export default function About({ scrollYProgress }) {
+export default function About({ scrollYProgress }: ScrollAnimationProps): React.JSX.Element {
   const { start, end } = useAboutAnimations();
 
+  // Create all opacity values for each image at the top level - call hooks outside of map
+  const imageOpacity0 = useStepOpacityWithinRange(scrollYProgress, 0, imageSources.length, start, end);
+  const imageOpacity1 = useStepOpacityWithinRange(scrollYProgress, 1, imageSources.length, start, end);
+  const imageOpacity2 = useStepOpacityWithinRange(scrollYProgress, 2, imageSources.length, start, end);
+  const imageOpacity3 = useStepOpacityWithinRange(scrollYProgress, 3, imageSources.length, start, end);
+  const imageOpacity4 = useStepOpacityWithinRange(scrollYProgress, 4, imageSources.length, start, end);
+  const imageOpacity5 = useStepOpacityWithinRange(scrollYProgress, 5, imageSources.length, start, end);
+  const imageOpacity6 = useStepOpacityWithinRange(scrollYProgress, 6, imageSources.length, start, end);
+  const imageOpacity7 = useStepOpacityWithinRange(scrollYProgress, 7, imageSources.length, start, end);
+  
+  const imageOpacities = [imageOpacity0, imageOpacity1, imageOpacity2, imageOpacity3, imageOpacity4, imageOpacity5, imageOpacity6, imageOpacity7];
+
   const lastIndex = imageSources.length - 1;
-  const lastImageOpacity = useStepOpacityWithinRange(
-    scrollYProgress,
-    lastIndex,
-    imageSources.length,
-    start,
-    end,
-  );
+  const lastImageOpacity = imageOpacities[lastIndex];
 
   return (
     <ScrollSection>
       {imageSources.map((src, index) => {
-        const opacity = useStepOpacityWithinRange(
-          scrollYProgress,
-          index,
-          imageSources.length,
-          start,
-          end,
-        );
+        const opacity = imageOpacities[index];
 
         return (
           <motion.img
@@ -85,8 +92,8 @@ export default function About({ scrollYProgress }) {
         >
           <div className="border-dashed-custom mb-4 w-full space-y-2 pb-4 text-left">
             <p className="text-2xl text-black">
-              I convert business visions and customer needs into enjoyable experiences. Welcome to a
-              day in my life.
+              I turn business goals and user needs into smooth, functional, and enjoyable software
+              experiences. Welcome to a day in my life.
             </p>
           </div>
           <div className="w-full space-y-2 text-left">

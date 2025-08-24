@@ -17,11 +17,11 @@ export default function Sidenav() {
               <Link href={'#work'}>work</Link>
             </HoverUnderline>
           </li>
-          {/* <li>
-            <HoverUnderline>
-              <Link href={'#projects'}>projects</Link>
+          <li>
+            <HoverUnderline underlineColor='bg-white/50'>
+              <Link href={'#copy-email-section'}>Contact Me</Link>
             </HoverUnderline>
-          </li> */}
+          </li>
         </ul>
       </nav>
 
