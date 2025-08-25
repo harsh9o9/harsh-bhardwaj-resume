@@ -66,6 +66,7 @@
 }
 
 @theme {
+  --breakpoint-xs: 30rem;
   --font-technology: 'Technology', sans-serif;
   --font-bastliga: 'Bastliga', sans-serif;
   --font-plex-mono: 'IBM Plex Mono', monospace;

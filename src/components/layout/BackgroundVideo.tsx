@@ -36,7 +36,8 @@ export default function BackgroundVideo({ scrollYProgress }: BackgroundVideoProp
           preload="metadata"
           poster="/images/timelapse-poster.avif"
           playsInline
-          className="block h-full w-full cursor-auto rounded-none object-cover object-[50%_50%]"
+          muted
+          className="block h-full w-full cursor-auto rounded-none object-cover object-center sm:object-[50%_50%]"
         />
       </div>
       <DistortionOverlay />

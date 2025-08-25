@@ -21,7 +21,7 @@ export default function ImageTransition({
 }: ImageTransitionProps): React.JSX.Element {
   return (
     <motion.div
-      className={`grid grid-cols-2 ${className}`}
+      className={`grid grid-cols-2 w-full h-full ${className}`}
       initial="rest"
       whileHover="hover"
       animate="rest"

@@ -96,23 +96,23 @@ export default function ProjectCard({ data }: ProjectCardProps): React.JSX.Eleme
       >
         {/* Window controls */}
         <motion.div
-          className="flex items-center justify-between gap-10 bg-neutral-700 px-8 py-4"
+          className="flex items-center justify-between gap-4 sm:gap-6 lg:gap-10 bg-neutral-700 px-4 sm:px-6 lg:px-8 py-3 sm:py-4"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
         >
-          <div className="flex gap-2">
-            <span className={`block h-3 w-3 rounded-full bg-red-400`} />
-            <span className={`block h-3 w-3 rounded-full bg-yellow-400`} />
-            <span className={`block h-3 w-3 rounded-full bg-green-400`} />
+          <div className="flex gap-1.5 sm:gap-2">
+            <span className={`block h-2.5 w-2.5 sm:h-3 sm:w-3 rounded-full bg-red-400`} />
+            <span className={`block h-2.5 w-2.5 sm:h-3 sm:w-3 rounded-full bg-yellow-400`} />
+            <span className={`block h-2.5 w-2.5 sm:h-3 sm:w-3 rounded-full bg-green-400`} />
           </div>
-          <div className="w-full max-w-96 rounded-lg border-[1px] border-gray-200/20">
-            <p className="py-1 text-center text-sm text-gray-300">{data?.window?.domain || ''}</p>
+          <div className="w-full max-w-48 sm:max-w-72 lg:max-w-96 rounded-lg border-[1px] border-gray-200/20">
+            <p className="py-1 text-center text-xs sm:text-sm text-gray-300">{data?.window?.domain || ''}</p>
           </div>
-          <div>
-            <div className="flex gap-10">
-              <UploadIcon className="h-5 text-gray-400" />
-              <PlusIcon className="h-5 text-gray-400" />
+          <div className="hidden sm:block">
+            <div className="flex gap-4 sm:gap-6 lg:gap-10">
+              <UploadIcon className="h-4 sm:h-5 text-gray-400" />
+              <PlusIcon className="h-4 sm:h-5 text-gray-400" />
             </div>
           </div>
         </motion.div>
@@ -131,25 +131,25 @@ export default function ProjectCard({ data }: ProjectCardProps): React.JSX.Eleme
 
       {/* Info with enhanced animations */}
       <motion.div
-        className={`absolute ${INFO_POSITIONS_MAP[data?.info?.position || 'BOTTOM-RIGHT']} flex flex-col gap-4`}
+        className={`absolute ${INFO_POSITIONS_MAP[data?.info?.position || 'BOTTOM-RIGHT']} flex flex-col gap-2 sm:gap-4`}
         initial={{ opacity: 0, x: 20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 0.3 }}
       >
         <motion.p
-          className={`max-w-fit rounded-2xl ${data?.info?.colors?.pillBg || 'bg-white'} px-5 py-2 text-sm font-bold shadow-2xl`}
+          className={`max-w-fit rounded-xl sm:rounded-2xl ${data?.info?.colors?.pillBg || 'bg-white'} px-3 sm:px-5 py-1.5 sm:py-2 text-xs sm:text-sm font-bold shadow-2xl`}
           whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.2 }}
         >
           {data?.info?.pillTitle || ''}
         </motion.p>
         <motion.div
-          className={`font-plex-mono flex min-h-48 w-64 flex-col gap-11 ${data?.info?.colors?.infoBg || 'bg-green-200'} p-4 tracking-tight`}
+          className={`font-plex-mono flex min-h-32 sm:min-h-40 lg:min-h-48 w-48 sm:w-56 lg:w-64 flex-col gap-6 sm:gap-8 lg:gap-11 ${data?.info?.colors?.infoBg || 'bg-green-200'} p-3 sm:p-4 tracking-tight`}
           whileHover={{ y: -5 }}
           transition={{ duration: 0.3 }}
         >
-          <p className="font-semibold">{data?.info?.title || ''}</p>
-          <p>{data?.info?.description || ''}</p>
+          <p className="font-semibold text-sm sm:text-base">{data?.info?.title || ''}</p>
+          <p className="text-xs sm:text-sm lg:text-base">{data?.info?.description || ''}</p>
         </motion.div>
       </motion.div>
 
@@ -160,21 +160,21 @@ export default function ProjectCard({ data }: ProjectCardProps): React.JSX.Eleme
         transition={{ duration: 0.3 }}
       >
         <div
-          className={`relative grid aspect-square h-44 w-44 grid-cols-2 place-items-center rounded-full ${data?.logo?.colors?.circle || 'bg-white/40'}`}
+          className={`relative grid aspect-square h-28 w-28 sm:h-36 sm:w-36 lg:h-44 lg:w-44 grid-cols-2 place-items-center rounded-full ${data?.logo?.colors?.circle || 'bg-white/40'}`}
         >
-          <div className="relative -top-3 -left-2 col-span-full row-span-full">
+          <div className="relative -top-2 sm:-top-3 -left-1 sm:-left-2 col-span-full row-span-full">
             <CircularTextRing
               text={data?.logo?.ringText || '*****'}
               repeat={3}
-              radius={80}
-              height={180}
-              width={180}
-              fontSize={15}
+              radius={data?.logo?.position === 'TOP-LEFT' ? 50 : 80}
+              height={data?.logo?.position === 'TOP-LEFT' ? 120 : 180}
+              width={data?.logo?.position === 'TOP-LEFT' ? 120 : 180}
+              fontSize={data?.logo?.position === 'TOP-LEFT' ? 10 : 15}
               color={data?.logo?.colors?.ringText || '#cad5e2'}
             />
           </div>
           <p
-            className={`relative -top-2 -left-1/8 col-span-full row-span-full rotate-12 [transform:perspective(1200px)_translateZ(72px)] text-4xl font-bold ${data?.logo?.colors?.text || 'text-white'}`}
+            className={`relative -top-1 sm:-top-2 -left-1/8 col-span-full row-span-full rotate-12 [transform:perspective(1200px)_translateZ(72px)] text-2xl sm:text-3xl lg:text-4xl font-bold ${data?.logo?.colors?.text || 'text-white'}`}
           >
             {data?.logo?.title || ''}
           </p>

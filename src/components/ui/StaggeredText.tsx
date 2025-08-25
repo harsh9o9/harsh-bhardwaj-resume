@@ -3,6 +3,7 @@ import { motion } from 'motion/react';
 interface StaggeredTextProps {
   text: string;
   className?: string;
+  delay?: number;
   staggerDelay?: number;
   duration?: number;
   initialDelay?: number;
@@ -19,7 +20,7 @@ export default function StaggeredText({
   
   return (
     <motion.div className={className}>
-      {words.map((word, index) => (
+      {words.map((word: string, index: number) => (
         <motion.span
           key={index}
           initial={{ opacity: 0, y: 20 }}

@@ -31,23 +31,23 @@ export default function Work({ scrollYProgress }: ScrollAnimationProps): React.J
 
   return (
     <>
-      <ScrollSection sticky className="grid h-full grid-cols-3 place-items-center overflow-hidden">
+      <ScrollSection sticky className="grid h-full grid-cols-1 lg:grid-cols-3 place-items-center overflow-hidden px-4 sm:px-8">
         <div className="mask-gradient col-span-full row-span-full" id="work">
           <motion.div
             ref={marqueeRef}
-            className="font-technology flex w-[800px] text-9xl font-bold text-white select-none"
+            className="font-technology flex w-[400px] sm:w-[600px] lg:w-[800px] text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-white select-none"
             style={{ x, opacity: workOpacity }}
           >
             {Array.from({ length: repeats * 2 }).map((_, i) => (
-              <div key={i} className="flex gap-4">
-                <span className="mx-4">WORK</span>
+              <div key={i} className="flex gap-2 sm:gap-4">
+                <span className="mx-2 sm:mx-4">WORK</span>
                 <span>.</span>
               </div>
             ))}
           </motion.div>
         </div>
         <motion.div
-          className="relative col-span-full row-span-full w-2xl"
+          className="relative col-span-full row-span-full w-full max-w-sm sm:max-w-md lg:max-w-2xl"
           style={{ scale: p1Scale, opacity: p1Opacity }}
         >
           <ProjectCard
@@ -83,7 +83,7 @@ export default function Work({ scrollYProgress }: ScrollAnimationProps): React.J
           />
         </motion.div>
         <motion.div
-          className="relative col-span-full row-span-full w-2xl"
+          className="relative col-span-full row-span-full w-full max-w-sm sm:max-w-md lg:max-w-2xl"
           style={{ scale: p2Scale, opacity: p2Opacity }}
         >
           <ProjectCard

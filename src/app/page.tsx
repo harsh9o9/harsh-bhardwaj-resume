@@ -18,7 +18,7 @@ export default function Home(): React.JSX.Element {
       <BackgroundVideo scrollYProgress={scrollYProgress} />
       <div className="absolute min-h-screen w-full">
         <Header />
-        <div className="grid h-[100dvh] grid-cols-1 md:grid-cols-[auto__1fr]">
+        <div className="grid h-[100dvh] grid-cols-1 lg:grid-cols-[auto__1fr]">
           <Sidenav />
           <Body mainContentRef={mainContentRef} scrollYProgress={scrollYProgress} />
         </div>

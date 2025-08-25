@@ -105,7 +105,7 @@ const CopyEmailButton = ({ email, className = '' }: CopyEmailButtonProps): React
   return (
     <HoverUnderline
       underlineColor={getUnderlineColor()}
-      className={`font-technology text-7xl transition-colors duration-200 ${className}`}
+      className={`font-technology text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl transition-colors duration-200 ${className}`}
       style={getButtonStyles()}
       onClick={handleCopy}
     >
