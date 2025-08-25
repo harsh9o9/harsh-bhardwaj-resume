@@ -120,7 +120,7 @@ export default function Sidenav(): React.JSX.Element {
     <>
       {/* Mobile Hamburger Button */}
       {isMobile && (
-        <div className="fixed top-4 left-4 z-50 md:hidden">
+        <div className="fixed top-4 right-4 z-50 md:hidden">
           <HamburgerIcon
             isOpen={isOpen}
             onClick={toggleMenu}
