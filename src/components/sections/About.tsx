@@ -122,7 +122,7 @@ export default function About({ scrollYProgress }: ScrollAnimationProps): React.
   const lastImageOpacity = imageOpacities[lastIndex];
 
   return (
-    <ScrollSection className="px-4 sm:px-8">
+    <ScrollSection className="overflow-hidden px-4 sm:px-8">
       {imageSources.map((src, index) => {
         const opacity = imageOpacities[index];
 
