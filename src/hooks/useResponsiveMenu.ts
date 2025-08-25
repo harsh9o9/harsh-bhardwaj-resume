@@ -19,7 +19,7 @@ export function useResponsiveMenu(): UseResponsiveMenuReturn {
     };
 
     checkMobile();
-    
+
     const handleResize = () => {
       checkMobile();
       // Close mobile menu if switching to desktop
@@ -68,7 +68,9 @@ export function useResponsiveMenu(): UseResponsiveMenuReturn {
     if (isOpen) {
       previousFocusRef.current = document.activeElement as HTMLElement;
       // Focus first focusable element in menu
-      const firstFocusable = document.querySelector('#mobile-navigation a, #mobile-navigation button') as HTMLElement;
+      const firstFocusable = document.querySelector(
+        '#mobile-navigation a, #mobile-navigation button',
+      ) as HTMLElement;
       firstFocusable?.focus();
     } else if (previousFocusRef.current) {
       previousFocusRef.current.focus();
@@ -76,7 +78,7 @@ export function useResponsiveMenu(): UseResponsiveMenuReturn {
   }, [isOpen]);
 
   const toggleMenu = useCallback(() => {
-    setIsOpen(prev => !prev);
+    setIsOpen((prev) => !prev);
   }, []);
 
   const closeMenu = useCallback(() => {

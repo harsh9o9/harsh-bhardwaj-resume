@@ -8,10 +8,10 @@ import type { ThrottledFunction } from '../types/hooks';
  */
 export function throttle<T extends (...args: any[]) => any>(
   func: T,
-  limit: number
+  limit: number,
 ): ThrottledFunction<T> {
   let inThrottle: boolean;
-  
+
   return function (this: ThisParameterType<T>, ...args: Parameters<T>): void {
     if (!inThrottle) {
       func.apply(this, args);

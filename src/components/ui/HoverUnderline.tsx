@@ -8,12 +8,12 @@ interface HoverUnderlineProps {
   onClick?: () => void;
 }
 
-const HoverUnderline: React.FC<HoverUnderlineProps> = ({ 
-  underlineColor, 
-  children, 
-  className = '', 
-  style = {}, 
-  onClick 
+const HoverUnderline: React.FC<HoverUnderlineProps> = ({
+  underlineColor,
+  children,
+  className = '',
+  style = {},
+  onClick,
 }) => {
   // Convert Tailwind color to CSS color
   const getColorValue = (color: string): string => {

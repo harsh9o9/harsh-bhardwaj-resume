@@ -32,7 +32,7 @@ export const easing: Record<string, EasingFunction> = {
   easeOutCubic: (t: number): number => 1 - Math.pow(1 - t, 3),
 
   // Ease in out cubic
-  easeInOutCubic: (t: number): number => 
+  easeInOutCubic: (t: number): number =>
     t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2,
 
   // Ease in quad
@@ -42,6 +42,5 @@ export const easing: Record<string, EasingFunction> = {
   easeOutQuad: (t: number): number => 1 - (1 - t) * (1 - t),
 
   // Ease in out quad
-  easeInOutQuad: (t: number): number => 
-    t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2,
+  easeInOutQuad: (t: number): number => (t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2),
 } as const;

@@ -54,7 +54,7 @@ export const useHeroAnimations = (scrollYProgress: MotionValue<number>): HeroAni
  */
 export const useWorkAnimations = (
   scrollYProgress: MotionValue<number>,
-  marqueeWidth?: number
+  marqueeWidth?: number,
 ): WorkAnimationValues => {
   const {
     START,

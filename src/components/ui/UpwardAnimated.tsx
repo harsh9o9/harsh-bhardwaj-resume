@@ -7,10 +7,10 @@ interface UpwardAnimatedProps {
   margin?: string;
 }
 
-export default function UpwardAnimated({ 
-  children, 
-  className, 
-  margin = '-100px' 
+export default function UpwardAnimated({
+  children,
+  className,
+  margin = '-100px',
 }: UpwardAnimatedProps): React.JSX.Element {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { margin: margin as any });

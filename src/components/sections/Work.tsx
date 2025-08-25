@@ -31,11 +31,14 @@ export default function Work({ scrollYProgress }: ScrollAnimationProps): React.J
 
   return (
     <>
-      <ScrollSection sticky className="grid h-full grid-cols-1 lg:grid-cols-3 place-items-center overflow-hidden px-4 sm:px-8">
+      <ScrollSection
+        sticky
+        className="grid h-full grid-cols-1 place-items-center overflow-hidden px-4 sm:px-8 lg:grid-cols-3"
+      >
         <div className="mask-gradient col-span-full row-span-full" id="work">
           <motion.div
             ref={marqueeRef}
-            className="font-technology flex w-[400px] sm:w-[600px] lg:w-[800px] text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-white select-none"
+            className="font-technology flex w-[400px] text-4xl font-bold text-white select-none sm:w-[600px] sm:text-6xl md:text-7xl lg:w-[800px] lg:text-8xl xl:text-9xl"
             style={{ x, opacity: workOpacity }}
           >
             {Array.from({ length: repeats * 2 }).map((_, i) => (
@@ -52,7 +55,7 @@ export default function Work({ scrollYProgress }: ScrollAnimationProps): React.J
         >
           <ProjectCard
             data={{
-              projectLink: "https://linkedin.com",
+              projectLink: 'https://linkedin.com',
               window: {
                 domain: 'linkedin.com',
                 imgPath: '/images/linkedin.png',
@@ -88,7 +91,7 @@ export default function Work({ scrollYProgress }: ScrollAnimationProps): React.J
         >
           <ProjectCard
             data={{
-              projectLink: "https://github.com/harsh9o9/chat-buddy-frontend",
+              projectLink: 'https://github.com/harsh9o9/chat-buddy-frontend',
               window: {
                 domain: 'chatbuddy.com',
                 imgPath: '/images/chatbuddy-view.png',

@@ -10,14 +10,14 @@ export default function Study() {
         <UpwardAnimated className="">
           <StaggeredText
             text="I like to start my day with my morning routine and some study or learning"
-            className="font-plex-mono mt-8 sm:mt-12 lg:mt-16 w-full max-w-[320px] sm:max-w-[380px] lg:max-w-[450px] text-lg sm:text-xl lg:text-2xl font-light text-white text-center"
+            className="font-plex-mono mt-8 w-full max-w-[320px] text-center text-lg font-light text-white sm:mt-12 sm:max-w-[380px] sm:text-xl lg:mt-16 lg:max-w-[450px] lg:text-2xl"
             staggerDelay={0.05}
             initialDelay={0.2}
           />
         </UpwardAnimated>
       </div>
 
-      <UpwardAnimated className="mt-8 sm:mt-12 lg:mt-16 flex justify-center">
+      <UpwardAnimated className="mt-8 flex justify-center sm:mt-12 lg:mt-16">
         <ImageTransition
           outlineSrc="/images/shelf-outline-1024.avif"
           fillSrc="/images/shelf-fill-1024.avif"
@@ -28,23 +28,23 @@ export default function Study() {
         />
       </UpwardAnimated>
 
-      <div className="mt-8 sm:mt-12 lg:mt-16 flex justify-center">
+      <div className="mt-8 flex justify-center sm:mt-12 lg:mt-16">
         <UpwardAnimated className="">
           <StaggeredText
             text="Then I have my breakfast which (unapologetically) is usually OatMeal or Muesli bowl - the only healthy recipe I've mastered."
-            className="font-plex-mono w-full max-w-[320px] sm:max-w-[380px] lg:max-w-[450px] text-lg sm:text-xl lg:text-2xl font-light text-white text-center"
+            className="font-plex-mono w-full max-w-[320px] text-center text-lg font-light text-white sm:max-w-[380px] sm:text-xl lg:max-w-[450px] lg:text-2xl"
             staggerDelay={0.05}
             initialDelay={0.2}
           />
         </UpwardAnimated>
       </div>
 
-      <UpwardAnimated className="mt-8 sm:mt-10 lg:mt-14 flex justify-center">
+      <UpwardAnimated className="mt-8 flex justify-center sm:mt-10 lg:mt-14">
         <ImageTransition
           outlineSrc="/images/oatmeal-3d-outline.png"
           fillSrc="/images/oatmeal-3d-colour.png"
           alt="oatmeal"
-          className="w-full max-w-[300px] sm:max-w-[450px] lg:max-w-[677px] place-items-center"
+          className="w-full max-w-[300px] place-items-center sm:max-w-[450px] lg:max-w-[677px]"
           width={512}
           height={512}
         />

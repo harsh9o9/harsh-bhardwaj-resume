@@ -9,7 +9,9 @@ interface BackgroundVideoProps {
   scrollYProgress: MotionValue<number>;
 }
 
-export default function BackgroundVideo({ scrollYProgress }: BackgroundVideoProps): React.JSX.Element {
+export default function BackgroundVideo({
+  scrollYProgress,
+}: BackgroundVideoProps): React.JSX.Element {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   const throttledVideoUpdate = useCallback(

@@ -14,9 +14,7 @@ interface NavLinkProps {
 }
 
 function NavLink({ href, children, external = false, onClick }: NavLinkProps): React.JSX.Element {
-  const linkProps = external 
-    ? { target: "_blank", rel: "noopener noreferrer" }
-    : {};
+  const linkProps = external ? { target: '_blank', rel: 'noopener noreferrer' } : {};
 
   return (
     <HoverUnderline underlineColor="bg-white/50">
@@ -36,8 +34,8 @@ export default function Sidenav(): React.JSX.Element {
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as Element;
       if (
-        isOpen && 
-        menuRef.current && 
+        isOpen &&
+        menuRef.current &&
         !menuRef.current.contains(target) &&
         !target.closest('button[aria-controls="mobile-navigation"]')
       ) {
@@ -60,9 +58,9 @@ export default function Sidenav(): React.JSX.Element {
       if (event.key !== 'Tab') return;
 
       const focusableElements = menuRef.current?.querySelectorAll(
-        'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])',
       );
-      
+
       if (!focusableElements?.length) return;
 
       const firstElement = focusableElements[0] as HTMLElement;
@@ -81,17 +79,25 @@ export default function Sidenav(): React.JSX.Element {
     return () => document.removeEventListener('keydown', handleTabKey);
   }, [isOpen, isMobile]);
 
-  const NavContent = ({ className = "" }: { className?: string }) => (
-    <nav className={`font-technology flex h-full flex-col justify-center text-xl text-white/50 ${className}`}>
+  const NavContent = ({ className = '' }: { className?: string }) => (
+    <nav
+      className={`font-technology flex h-full flex-col justify-center text-xl text-white/50 ${className}`}
+    >
       <ul className="flex flex-col gap-4 border-b border-white/50 pb-6" role="list">
         <li role="listitem">
-          <NavLink href="#intro" onClick={closeMenu}>intro</NavLink>
+          <NavLink href="#intro" onClick={closeMenu}>
+            intro
+          </NavLink>
         </li>
         <li role="listitem">
-          <NavLink href="#work" onClick={closeMenu}>work</NavLink>
+          <NavLink href="#work" onClick={closeMenu}>
+            work
+          </NavLink>
         </li>
         <li role="listitem">
-          <NavLink href="#copy-email-section" onClick={closeMenu}>Contact Me</NavLink>
+          <NavLink href="#copy-email-section" onClick={closeMenu}>
+            Contact Me
+          </NavLink>
         </li>
       </ul>
 
@@ -115,10 +121,10 @@ export default function Sidenav(): React.JSX.Element {
       {/* Mobile Hamburger Button */}
       {isMobile && (
         <div className="fixed top-4 left-4 z-50 md:hidden">
-          <HamburgerIcon 
-            isOpen={isOpen} 
+          <HamburgerIcon
+            isOpen={isOpen}
             onClick={toggleMenu}
-            className="bg-black/20 backdrop-blur-sm rounded-full p-1 hover:bg-black/30 transition-colors focus:outline-none focus:ring-2 focus:ring-white/50"
+            className="rounded-full bg-black/20 p-1 backdrop-blur-sm transition-colors hover:bg-black/30 focus:ring-2 focus:ring-white/50 focus:outline-none"
           />
         </div>
       )}
@@ -140,20 +146,20 @@ export default function Sidenav(): React.JSX.Element {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.2, ease: "easeInOut" }}
+              transition={{ duration: 0.2, ease: 'easeInOut' }}
               onClick={closeMenu}
               aria-hidden="true"
             />
-            
+
             {/* Slide-out Menu */}
             <motion.aside
               ref={menuRef}
               id="mobile-navigation"
-              className="fixed left-0 top-0 z-50 h-full w-64 bg-black/90 backdrop-blur-md px-6 py-20 md:hidden shadow-2xl"
+              className="fixed top-0 left-0 z-50 h-full w-64 bg-black/90 px-6 py-20 shadow-2xl backdrop-blur-md md:hidden"
               initial={{ x: '-100%' }}
               animate={{ x: 0 }}
               exit={{ x: '-100%' }}
-              transition={{ type: 'tween', duration: 0.3, ease: "easeInOut" }}
+              transition={{ type: 'tween', duration: 0.3, ease: 'easeInOut' }}
               role="dialog"
               aria-label="Mobile navigation"
               aria-modal="true"

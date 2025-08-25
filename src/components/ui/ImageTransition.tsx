@@ -10,18 +10,18 @@ interface ImageTransitionProps {
   duration?: number;
 }
 
-export default function ImageTransition({ 
-  outlineSrc, 
-  fillSrc, 
-  alt, 
-  className = "",
+export default function ImageTransition({
+  outlineSrc,
+  fillSrc,
+  alt,
+  className = '',
   width = 512,
   height = 512,
-  duration = 0.5
+  duration = 0.5,
 }: ImageTransitionProps): React.JSX.Element {
   return (
     <motion.div
-      className={`grid grid-cols-2 w-full h-full ${className}`}
+      className={`grid h-full w-full grid-cols-2 ${className}`}
       initial="rest"
       whileHover="hover"
       animate="rest"

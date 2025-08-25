@@ -17,7 +17,7 @@ const Hero = ({ scrollYProgress }: ScrollAnimationProps): React.JSX.Element => {
           transition={{ duration: 1, ease: 'easeOut' }}
         >
           <motion.p
-            className="font-technology inline-grid text-center text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl text-white/60"
+            className="font-technology inline-grid text-center text-4xl text-white/60 sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl"
             initial={{ y: 50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.8 }}
@@ -45,7 +45,7 @@ const Hero = ({ scrollYProgress }: ScrollAnimationProps): React.JSX.Element => {
           style={{ opacity: introOpacity, scale: introScale }}
         >
           <motion.p
-            className="font-technology text-center text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl text-white/60"
+            className="font-technology text-center text-4xl text-white/60 sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl"
             initial={{ rotateY: 90, opacity: 0 }}
             animate={{ rotateY: 0, opacity: 1 }}
             transition={{ duration: 0.8, ease: 'easeOut' }}

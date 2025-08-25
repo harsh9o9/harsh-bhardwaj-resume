@@ -18,9 +18,7 @@ export default function RootLayout({ children }: RootLayoutProps): React.JSX.Ele
         <title>Harsh Bhardwaj</title>
       </head>
       <body className="bg-white text-black">
-        <AnimatePresence mode="wait">
-          {children}
-        </AnimatePresence>
+        <AnimatePresence mode="wait">{children}</AnimatePresence>
       </body>
     </html>
   );

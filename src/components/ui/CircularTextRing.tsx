@@ -35,10 +35,10 @@ function CircularTextRing({
   const cy = height / 2;
 
   return (
-    <div className={`w-full h-full ${className}`}>
-      <svg 
-        viewBox={`0 0 ${width} ${height}`} 
-        className="w-full h-full max-w-[200px] max-h-[200px] sm:max-w-[300px] sm:max-h-[300px] md:max-w-[400px] md:max-h-[400px]"
+    <div className={`h-full w-full ${className}`}>
+      <svg
+        viewBox={`0 0 ${width} ${height}`}
+        className="h-full max-h-[200px] w-full max-w-[200px] sm:max-h-[300px] sm:max-w-[300px] md:max-h-[400px] md:max-w-[400px]"
       >
         <defs>
           <path
