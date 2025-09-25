@@ -41,8 +41,8 @@ export default function Study() {
 
       <UpwardAnimated className="mt-8 flex justify-center sm:mt-10 lg:mt-14">
         <ImageTransition
-          outlineSrc="/images/oatmeal-3d-outline.png"
-          fillSrc="/images/oatmeal-3d-colour.png"
+          outlineSrc="/images/oatmeal-3d-outline.avif"
+          fillSrc="/images/oatmeal-3d-colour.avif"
           alt="oatmeal"
           className="w-full max-w-[300px] place-items-center sm:max-w-[450px] lg:max-w-[677px]"
           width={512}

@@ -58,7 +58,7 @@ export default function Work({ scrollYProgress }: ScrollAnimationProps): React.J
               projectLink: 'https://linkedin.com',
               window: {
                 domain: 'linkedin.com',
-                imgPath: '/images/linkedin.png',
+                imgPath: '/images/linkedin.avif',
                 imgAlt: 'LinkedIn view',
               },
               logo: {
@@ -94,7 +94,7 @@ export default function Work({ scrollYProgress }: ScrollAnimationProps): React.J
               projectLink: 'https://github.com/harsh9o9/chat-buddy-frontend',
               window: {
                 domain: 'chatbuddy.com',
-                imgPath: '/images/chatbuddy-view.png',
+                imgPath: '/images/chatbuddy-view.avif',
                 imgAlt: 'ChatBuddy website view',
               },
               logo: {
