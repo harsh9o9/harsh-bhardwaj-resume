@@ -1,13 +1,6 @@
 @import 'tailwindcss';
 
 @font-face {
-  font-family: 'Bastliga';
-  src: url('/fonts/bastliga-one.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
   font-family: 'Technology';
   src: url('/fonts/Technology.ttf') format('truetype');
   font-weight: normal;
@@ -68,7 +61,6 @@
 @theme {
   --breakpoint-xs: 30rem;
   --font-technology: 'Technology', sans-serif;
-  --font-bastliga: 'Bastliga', sans-serif;
   --font-plex-mono: 'IBM Plex Mono', monospace;
 }
 
